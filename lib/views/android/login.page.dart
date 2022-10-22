@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
 //import models as needed
 
-class LoginPage extends StatelessWidget {
-  var estrela_icon = 'images/S5.png';
-  double? icon_size = 200;
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String estrelaIcon = 'images/S5.png';
+
+  double? iconSize = 150;
+
+  InputDecoration loginDeco = const InputDecoration(
+      border: OutlineInputBorder(), fillColor: Colors.white, filled: true);
+
+  TextStyle loginStyle = const TextStyle(
+      color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,20 +29,70 @@ class LoginPage extends StatelessWidget {
           margin: const EdgeInsets.all(40),
           child: Column(
             children: [
-              const Text(
-                "Estrelas de Aluguel",
-                style: TextStyle(fontSize: 32, color: Colors.white),
+              Expanded(
+                flex: 1,
+                child: Container(),
               ),
-              Image.asset(
-                estrela_icon,
-                fit: BoxFit.fill,
-                width: icon_size,
-                height: icon_size,
+              const Expanded(
+                flex: 1,
+                child: Text(
+                  "Estrelas de Aluguel",
+                  style: TextStyle(
+                      fontSize: 32,
+                      color: Colors.white,
+                      fontFamily: 'Nunito',
+                      fontWeight: FontWeight.bold),
+                ),
               ),
-              Text("E-mail"),
-              TextField(),
-              Text("Senha"),
-              TextField()
+              Expanded(
+                flex: 3,
+                child: Image.asset(
+                  estrelaIcon,
+                  width: iconSize,
+                  height: iconSize,
+                ),
+              ),
+              Expanded(
+                flex: 4,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "E-mail",
+                            style: loginStyle,
+                          ),
+                          const Padding(padding: EdgeInsets.all(4)),
+                          TextField(
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: loginDeco,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            "Senha",
+                            style: loginStyle,
+                          ),
+                          const Padding(padding: EdgeInsets.all(4)),
+                          TextField(
+                            obscureText: true,
+                            decoration: loginDeco,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(flex: 1, child: Container())
             ],
           ),
         ));
