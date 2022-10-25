@@ -8,7 +8,7 @@ import 'review.page.dart';
 class AndroidApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: LoginPage(), routes: {
+    return MaterialApp(home: HomePage(), routes: {
       '/home': (context) => HomePage(),
       '/login': (context) => LoginPage(),
       '/search': (context) => SearchPage(),

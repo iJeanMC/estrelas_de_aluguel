@@ -92,7 +92,15 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              Expanded(flex: 1, child: Container())
+              Expanded(flex: 1, child: Container()),
+              Expanded(
+                  child: ElevatedButton(
+                child: Text('Login'),
+                onPressed: () => {
+                  Navigator.of(context).pop()
+                }, //do more stuff? i don't know, like make the user actually be logged in, I guess
+              )),
+              //Expanded(flex: 1, child: Container())
             ],
           ),
         ));
