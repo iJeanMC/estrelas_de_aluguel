@@ -12,8 +12,11 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           actions: [
             IconButton(
-                onPressed: (() => {Navigator.of(context).pushNamed('/login')}),
-                icon: Image.asset(userIcon))
+              onPressed: (() => {Navigator.of(context).pushNamed('/login')}),
+              icon: Image.asset(
+                userIcon,
+              ),
+            )
           ],
         ),
         // i don't think i'm going to do this right. the idea is to make
