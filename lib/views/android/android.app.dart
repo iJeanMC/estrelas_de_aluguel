@@ -4,6 +4,7 @@ import 'home.page.dart';
 import 'login.page.dart';
 import 'search.page.dart';
 import 'review.page.dart';
+import 'review_creation.page.dart';
 
 class AndroidApp extends StatelessWidget {
   @override
@@ -13,6 +14,7 @@ class AndroidApp extends StatelessWidget {
       '/login': (context) => LoginPage(),
       '/search': (context) => SearchPage(),
       '/review': (context) => ReviewPage(),
+      '/review_creation': (context) => ReviewCreation(),
     });
   }
 }
