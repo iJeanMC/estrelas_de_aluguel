@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 //import models as needed
 
 class HomePage extends StatelessWidget {
+  Widget rating_bar_indicator_default(double rating) {
+    return RatingBarIndicator(
+        rating: rating,
+        direction: Axis.horizontal,
+        itemCount: 5,
+        itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+        itemBuilder: (context, _) => Icon(
+              Icons.star,
+              color: Colors.amber,
+            ));
+  }
+
   String userIcon = 'images/S1.png';
 
   var a_review_list = List<int>.filled(9, 0);
@@ -125,13 +138,12 @@ class HomePage extends StatelessWidget {
                                         child: Text(" função"),
                                       ),
                                       Container(
-                                        alignment: Alignment.centerLeft,
+                                        alignment: Alignment.center,
                                         padding: EdgeInsets.all(1),
                                         margin:
                                             EdgeInsets.fromLTRB(2, 2, 20, 2),
                                         color: Colors.white,
-                                        child: const Text("Widget das estrelas",
-                                            style: TextStyle()),
+                                        child: rating_bar_indicator_default(4),
                                       )
                                     ],
                                   ),
