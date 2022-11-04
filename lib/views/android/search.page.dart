@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 //import models as needed
 
 class SearchPage extends StatelessWidget {
+  Widget rating_bar_indicator_default(double rating) {
+    return RatingBarIndicator(
+        rating: rating,
+        direction: Axis.horizontal,
+        itemCount: 5,
+        itemSize: 30,
+        itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+        itemBuilder: (context, _) => Icon(
+              Icons.star,
+              color: Colors.amber,
+            ));
+  }
+
+  @override
   Widget worker_preview_card(BuildContext context) {
     return GestureDetector(
       onTap: () => {Navigator.of(context).pushNamed('/review')},
@@ -11,13 +26,13 @@ class SearchPage extends StatelessWidget {
             color: Colors.lightBlue,
             borderRadius: BorderRadius.all(Radius.circular(10))),
         margin: EdgeInsets.all(5),
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.all(3),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.all(5),
+              padding: EdgeInsets.all(3),
               child: Expanded(
                   child: Container(
                 decoration: const BoxDecoration(
@@ -42,7 +57,7 @@ class SearchPage extends StatelessWidget {
                     color: Colors.white,
                     child: Text(
                       " nome",
-                      style: TextStyle(fontSize: 24),
+                      style: TextStyle(fontSize: 20),
                     ),
                   ),
                   Container(
@@ -50,16 +65,17 @@ class SearchPage extends StatelessWidget {
                     padding: EdgeInsets.all(1),
                     margin: EdgeInsets.fromLTRB(2, 2, 10, 2),
                     color: Colors.white,
-                    child: Text(" função"),
+                    child: Text(
+                      " função",
+                      style: TextStyle(fontSize: 16),
+                    ),
                   ),
                   Container(
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.all(1),
-                    margin: EdgeInsets.fromLTRB(2, 2, 10, 2),
-                    color: Colors.white,
-                    child:
-                        const Text("Widget das estrelas", style: TextStyle()),
-                  )
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.all(1),
+                      margin: EdgeInsets.fromLTRB(2, 2, 10, 2),
+                      color: Colors.white,
+                      child: rating_bar_indicator_default(4))
                 ],
               ),
             )
@@ -85,18 +101,19 @@ class SearchPage extends StatelessWidget {
               ),
             ),
             Expanded(
+                flex: 2,
                 child: Container(
-              decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.black))),
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  worker_preview_card(context),
-                  worker_preview_card(context)
-                ],
-              ),
-            )),
-            Expanded(flex: 4, child: Container())
+                  decoration: BoxDecoration(
+                      border: Border(bottom: BorderSide(color: Colors.black))),
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      worker_preview_card(context),
+                      worker_preview_card(context)
+                    ],
+                  ),
+                )),
+            Expanded(flex: 7, child: Container())
           ],
         ));
   }

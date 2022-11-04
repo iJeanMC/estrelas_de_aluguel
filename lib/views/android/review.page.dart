@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 //import models as needed
 
 class ReviewPage extends StatelessWidget {
+  Widget rating_bar_indicator_default(double rating) {
+    return RatingBarIndicator(
+        rating: rating,
+        direction: Axis.horizontal,
+        itemCount: 5,
+        itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+        itemBuilder: (context, _) => Icon(
+              Icons.star,
+              color: Colors.amber,
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,13 +65,11 @@ class ReviewPage extends StatelessWidget {
                               child: Text(" função"),
                             ),
                             Container(
-                              alignment: Alignment.centerLeft,
-                              padding: EdgeInsets.all(1),
-                              margin: EdgeInsets.fromLTRB(2, 2, 20, 2),
-                              color: Colors.white,
-                              child: const Text("Widget das estrelas",
-                                  style: TextStyle()),
-                            )
+                                alignment: Alignment.centerLeft,
+                                padding: EdgeInsets.all(1),
+                                margin: EdgeInsets.fromLTRB(2, 2, 20, 2),
+                                color: Colors.white,
+                                child: rating_bar_indicator_default(4))
                           ],
                         ),
                       )

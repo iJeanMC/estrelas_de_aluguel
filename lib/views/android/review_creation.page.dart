@@ -7,16 +7,16 @@ class ReviewCreation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: (() => {Navigator.of(context).pushNamed('/login')}),
-            icon: Image.asset(
-              userIcon,
-            ),
-          )
-        ],
-      ),
-    );
+        appBar: AppBar(
+          actions: [
+            IconButton(
+              onPressed: (() => {Navigator.of(context).pushNamed('/login')}),
+              icon: Image.asset(
+                userIcon,
+              ),
+            )
+          ],
+        ),
+        body: Center());
   }
 }
