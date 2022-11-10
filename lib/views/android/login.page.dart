@@ -23,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         //#46b3eb
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color.fromARGB(255, 70, 179, 235),
         body: Container(
           alignment: Alignment.center,
