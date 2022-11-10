@@ -28,6 +28,14 @@ class Worker_TagsController {
     return reviews;
   }
 
+  Future<List<Map>> readTop5() async {
+    var database = await getDatabase();
+    List<Map> reviews = await database
+        .rawQuery('SELECT * FROM review ORDER BY id DESC LIMIT 5');
+    await database.close();
+    return reviews;
+  }
+
   Future<List<Map>> search(String value) async {
     var database = await getDatabase();
     List<Map> reviews =
