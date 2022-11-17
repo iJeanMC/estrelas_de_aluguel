@@ -1,5 +1,6 @@
+// import 'models/user.model.dart'; OR controllers/user.controller.dart;
 import 'package:flutter/material.dart';
-
+import 'cadastro.app.dart';
 import 'home.page.dart';
 import 'login.page.dart';
 import 'search.page.dart';
@@ -15,6 +16,7 @@ class AndroidApp extends StatelessWidget {
       '/search': (context) => SearchPage(),
       '/review': (context) => ReviewPage(),
       '/review_creation': (context) => ReviewCreation(),
+      '/cadastro': (context) => CadastroCreation(),
     });
   }
 }
