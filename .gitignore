@@ -56,5 +56,3 @@ app.*.map.json
 /build/app/outputs/*
 !/build/app/outputs/apk/
 
-/build/app/outputs/apk/*
-!/build/app/outputs/apk/app-debug.apk
