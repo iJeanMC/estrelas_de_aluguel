@@ -101,6 +101,13 @@ class _LoginPageState extends State<LoginPage> {
                   Navigator.of(context).pop()
                 }, //do more stuff? i don't know, like make the user actually be logged in, I guess
               )),
+              GestureDetector(
+                  onTap: () => {
+                        Navigator.of(context).pushNamed('/cadastro')
+                      }, //redirect to review page
+                  child: Container(
+                    child: Text('Criar conta'),
+                  ))
               //Expanded(flex: 1, child: Container())
             ],
           ),
