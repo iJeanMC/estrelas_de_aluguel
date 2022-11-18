@@ -9,9 +9,8 @@ class Worker_TagsController {
     Database database = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
       await db.execute(
-          'CREATE TABLE review (id INTEGER PRIMARY KEY autoincrement, stars INTEGER NOT NULL, text_box TEXT NOT NULL, title TEXT NOT NULL, authorid INTEGER NOT NULL, FOREIGN KEY (authorid) REFERENCES user(id), worker_reviewedid INTEGER NOT NULL, FOREIGN KEY (worker_reviewedid) REFERENCES worker(id))');
+          'CREATE TABLE review (id INTEGER PRIMARY KEY autoincrement, stars INTEGER, text_box TEXT, title TEXT, autor_id INTEGER, FOREIGN KEY (autor_id) REFERENCES user(id), worker_reviewed INTEGER, FOREIGN KEY (worker_reviewed) REFERENCES worker(id))');
     });
-
     return database;
   }
 

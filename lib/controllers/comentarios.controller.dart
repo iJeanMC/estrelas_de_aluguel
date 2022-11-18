@@ -9,7 +9,7 @@ class Worker_TagsController {
     Database database = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
       await db.execute(
-          'CREATE TABLE comentarios (id INTEGER PRIMARY KEY autoincrement, reviewid INTEGER NOT NULL, FOREIGN KEY (reviewid) REFERENCES reviews(id), userid INTEGER NOT NULL, FOREIGN KEY (userid) REFERENCES users(id), likes INTEGER NOT NULL, deslikes INTEGER NOT NULL, text_body TEXT NOT NULL)');
+          'CREATE TABLE comentarios (id INTEGER PRIMARY KEY autoincrement, reviewed INTEGER, FOREIGN KEY (reviewed) REFERENCES review(id), userid INTEGER, FOREIGN KEY (userid) REFERENCES users(id), likes INTEGER, deslikes INTEGER, text_body TEXT)');
     });
 
     return database;

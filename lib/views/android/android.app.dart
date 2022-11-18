@@ -16,7 +16,7 @@ class AndroidApp extends StatelessWidget {
       '/search': (context) => SearchPage(),
       '/review': (context) => ReviewPage(),
       '/review_creation': (context) => ReviewCreation(),
-      '/cadastro': (context) => CadastroCreation(),
+      '/cadastro': (context) => CadastroPage(),
     });
   }
 }

@@ -9,7 +9,7 @@ class UserController {
     Database database = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
       await db.execute(
-          'CREATE TABLE users (id INTEGER PRIMARY KEY autoincrement, username TEXT, password BINARY)');
+          'CREATE TABLE users (id INTEGER PRIMARY KEY autoincrement, username TEXT, password_hash TEXT)');
     });
 
     return database;
@@ -31,7 +31,7 @@ class UserController {
   Future<List<Map>> search(String value) async {
     var database = await getDatabase();
     List<Map> users = await database
-        .rawQuery("SELECT * FROM users WHERE name like '%$value%'");
+        .rawQuery("SELECT * FROM users WHERE username like '%$value%'");
     await database.close();
     return users;
   }

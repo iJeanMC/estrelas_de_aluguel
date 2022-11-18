@@ -9,7 +9,7 @@ class Worker_TagsController {
     Database database = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
       await db.execute(
-          'CREATE TABLE worker_tags (id INTEGER PRIMARY KEY autoincrement, tag_name TEXT NOT NULL)');
+          'CREATE TABLE worker_tags (id INTEGER PRIMARY KEY autoincrement, tag_name TEXT)');
     });
 
     return database;
@@ -30,8 +30,7 @@ class Worker_TagsController {
 
   Future<List<Map>> search(String value) async {
     var database = await getDatabase();
-    List<Map> taggs =
-        await database.rawQuery("SELECT * FROM worker WHERE id");
+    List<Map> taggs = await database.rawQuery("SELECT * FROM worker WHERE id");
     await database.close();
     return taggs;
   }

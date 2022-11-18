@@ -1,13 +1,13 @@
 class Worker_has_worker_tags {
-  int? tagid;
-  int? workerid;
+  int? id;
+  int? worker_tagid;
 
   Worker_has_worker_tags.fromMap(Map<dynamic, dynamic> map) {
-    tagid = map['tagid'];
-    workerid = map['workerid'];
+    id = map['id'];
+    worker_tagid = map['worker_tagid'];
   }
 
   Map<String, dynamic> toMap() {
-    return {'tagid': tagid, 'workerid': workerid};
+    return {'tagid': id, 'worker_tagid': worker_tagid};
   }
 }

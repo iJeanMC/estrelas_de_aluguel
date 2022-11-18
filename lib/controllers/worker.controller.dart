@@ -9,7 +9,7 @@ class WorkerController {
     Database database = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
       await db.execute(
-          'CREATE TABLE worker (id INTEGER PRIMARY KEY autoincrement, avarage_review INTEGER NOT NULL, userid INTEGER NOT NULL, FOREIGN KEY user(id))');
+          'CREATE TABLE worker (id INTEGER PRIMARY KEY autoincrement, password_hash TEXT, workerid INTEGER, FOREIGN KEY (workerid) REFERENCES users (id))');
     });
 
     return database;
