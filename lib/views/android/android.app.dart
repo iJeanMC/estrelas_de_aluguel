@@ -6,6 +6,7 @@ import 'login.page.dart';
 import 'search.page.dart';
 import 'review.page.dart';
 import 'review_creation.page.dart';
+import 'cadastro_worker.app.dart';
 
 class AndroidApp extends StatelessWidget {
   @override
@@ -17,6 +18,7 @@ class AndroidApp extends StatelessWidget {
       '/review': (context) => ReviewPage(),
       '/review_creation': (context) => ReviewCreation(),
       '/cadastro': (context) => CadastroPage(),
+      '/worker': (context) => Cadastro_workerPage()
     });
   }
 }

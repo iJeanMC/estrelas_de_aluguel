@@ -47,24 +47,3 @@ class CadastroPage extends StatelessWidget {
         ]));
   }
 }
-
-
-
-  //       Form(
-  //       key: formKey,
-  //       child: Column(
-  //         children: [
-  //           TextFormField(
-  //             onSaved: (value) => username = value,
-  //           ),
-  //           SizedBox(
-  //             width: MediaQuery.of(context).size.width - 20,
-  //             child: ElevatedButton(
-  //               onPressed: () => save(context), 
-  //               child: Text('Save'),
-  //             ),
-  //           ),
-  //         ],
-  //     ]),
-  //     ),
-  // }
