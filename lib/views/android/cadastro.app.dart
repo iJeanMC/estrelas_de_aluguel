@@ -54,8 +54,9 @@ class CadastroPage extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width - 20,
             child: ElevatedButton(
-              onPressed: () => save(context), 
+              onHover: (value) => (context), 
               child: Text('Save'),
+              onPressed: (() => {Navigator.of(context).pushNamed('/home')}),
               
             ),
           ),    

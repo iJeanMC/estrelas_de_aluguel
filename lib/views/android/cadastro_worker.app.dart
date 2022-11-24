@@ -6,6 +6,7 @@ import '../../models/worker.model.dart';
 class Cadastro_workerPage extends StatelessWidget {
   String? password_hash;
   int? userid;
+  String? funcao;
 
     bool aceitoTermos = true;
   final formKey = GlobalKey<FormState>();
@@ -13,7 +14,7 @@ class Cadastro_workerPage extends StatelessWidget {
   void save(BuildContext context) async {
  //   formKey.currentState!.save();
     var workerController = new WorkerController();
-    await workerController.create(Worker(password_hash, userid));
+    await workerController.create(Worker(password_hash, userid, funcao));
     Navigator.of(context).pop();
   }
 
@@ -28,19 +29,22 @@ class Cadastro_workerPage extends StatelessWidget {
         child: Column(mainAxisAlignment: MainAxisAlignment.start,
                       
          children: [ 
-          TextFormField( obscureText: true, decoration: InputDecoration ( labelText: 'Nova Senha'),
-            onChanged: (value) => password_hash = value, 
+          TextFormField( decoration: InputDecoration ( labelText: 'Confirmar usuario'),
+            onChanged: (value) => userid = int.parse(value), 
+              style: TextStyle(fontSize: 18)
+              
+          ),
+          TextFormField( decoration: InputDecoration ( labelText: 'Função'),
+            onChanged: (value) { funcao = value;},   
               style: TextStyle(fontSize: 18)
               
           ),
             TextFormField(obscureText: true, decoration: InputDecoration ( labelText: 'Confirmar Senha'),
             style: TextStyle(fontSize: 18)
           ),
-           TextFormField( obscureText: true, decoration: InputDecoration ( labelText: 'Usuario'),
-            onChanged: (value) => userid = int.parse(value), 
-              style: TextStyle(fontSize: 18)
-              
-          ),
+          
+          
+           
           Row(
              children: [
               Checkbox(

@@ -3,17 +3,37 @@ import 'package:flutter/services.dart';
 //import models as needed
 
 import '../../controllers/review.controller.dart';
+import '../../controllers/select.controller.dart';
 import '../../models/review.model.dart';
 
-class ReviewCreation extends StatelessWidget {
   String userIcon = 'images/S1.png';
   double? stars;
   String? text_body;
   String? title;
-  final formKey = GlobalKey<FormState>();
 
+final formKey = GlobalKey<FormState>();
+
+
+class ReviewCreation extends StatefulWidget {
+   @override
+  State<ReviewCreation> createState() => _SearchWorkerState();
+}
+
+class _SearchWorkerState extends State<ReviewCreation> {
+
+  final select = new SelectController();
+  @override
+
+  Future<List<Map>>? resultR;
+
+   void searchSelect(String value){
+      setState(() {
+      resultR = select.searchR(value);
+    });
+  }  
+  
   void save(BuildContext context) async {
-    formKey.currentState!.save();
+  //  formKey.currentState!.save();
     var reviewController = new ReviewController();
     await reviewController.create(Review(stars, text_body, title ));
     Navigator.of(context).pop();
@@ -47,7 +67,7 @@ class ReviewCreation extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: TextFormField(
-                  //  onSaved: (value) => worker_reviewd = value,
+                 onChanged: (value) => searchSelect(value),
                   decoration: InputDecoration(
                       border: OutlineInputBorder(), labelText: "Trabalhador")),
             ),
@@ -57,7 +77,7 @@ class ReviewCreation extends StatelessWidget {
                 keyboardType: TextInputType.multiline,
                 minLines: 15,
                 maxLines: 40,
-                onSaved: (value) => text_body = value,
+                onChanged: (value) => text_body = value,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Review",
@@ -67,6 +87,7 @@ class ReviewCreation extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: ElevatedButton(
+                onHover: (value) => (context),
                 onPressed: () => {Navigator.of(context).pop()},
                 child: Container(
                   child: Text("Enviar"),

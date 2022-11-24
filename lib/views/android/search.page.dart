@@ -1,8 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
+import '../../controllers/select.controller.dart';
 //import models as needed
 
-class SearchPage extends StatelessWidget {
+
+class SearchPage extends StatefulWidget {
+   @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+
+  final select = new SelectController();
+  @override
+
+  Future<List<Map>>? resultT;
+
+  void searchSelect(String value){
+      setState(() {
+      resultT = select.searchT(value);
+    });
+  }  
+
   Widget rating_bar_indicator_default(double rating) {
     return RatingBarIndicator(
         rating: rating,
@@ -97,6 +117,8 @@ class SearchPage extends StatelessWidget {
           children: [
             Container(
               child: TextField(
+                onChanged: (value) => searchSelect(value),
+
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search), hintText: "Persquisar..."),
               ),

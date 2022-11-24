@@ -8,8 +8,15 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+class VariavelGlobal {
+  var usuario;
+  var senha;
+}
+
 class _LoginPageState extends State<LoginPage> {
   String estrelaIcon = 'images/S5.png';
+  String usuario = '';
+  String senha = '';
 
   double? iconSize = 150;
 
@@ -63,14 +70,15 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            "E-mail",
+                            "Usuario",
                             style: loginStyle,
-                          ),
+                          ), 
                           const Padding(padding: EdgeInsets.all(4)),
                           TextField(
                             keyboardType: TextInputType.emailAddress,
                             decoration: loginDeco,
-                          ),
+                            onChanged: (text) {usuario = text;},
+                          ), 
                         ],
                       ),
                     ),
@@ -86,6 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                           TextField(
                             obscureText: true,
                             decoration: loginDeco,
+                            onChanged: (text) {senha = text;},
                           ),
                         ],
                       ),

@@ -23,29 +23,29 @@ class Worker_TagsController {
 
   Future<List<Map>> read() async {
     var database = await getDatabase();
-    List<Map> reviews = await database.rawQuery('SELECT * FROM comentarios');
+    List<Map> comentarios= await database.rawQuery('SELECT * FROM comentarios');
     await database.close();
-    return reviews;
+    return comentarios;
   }
 
   Future<List<Map>> search(String value) async {
     var database = await getDatabase();
-    List<Map> reviews =
+    List<Map> coment=
         await database.rawQuery("SELECT * FROM comentarios WHERE id");
     await database.close();
-    return reviews;
+    return coment;
   }
 
   Future<void> update(Comentarios coment) async {
     var database = await getDatabase();
-    await database.update('Comentarios', coment.toMap(),
+    await database.update('comentarios', coment.toMap(),
         where: 'id = ?', whereArgs: [coment.id]);
     await database.close();
   }
 
-/*  Future<void> delete(Task task) async {
+  Future<void> delete(Comentarios coment) async {
     var database = await getDatabase();
-    await database.delete('Task', where: 'id = ?', whereArgs: [task.id]);
+    await database.delete('comentarios', where: 'id = ?', whereArgs: [coment.id]);
     await database.close();
-  } */
+  } 
 }

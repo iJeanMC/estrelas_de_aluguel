@@ -35,14 +35,6 @@ class ReviewPage extends StatelessWidget {
     return comment;
   }
 
-/*  void save(BuildContext context) async {
-    double stars = 0;
-    formKey.currentState!.save();
-    var reviewController = new ReviewController();
-    await reviewController.create(Review(stars));
-    Navigator.of(context).pop();
-  } */
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -9,7 +9,7 @@ class WorkerController {
     Database database = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
       await db.execute(
-          'CREATE TABLE workers (id INTEGER PRIMARY KEY autoincrement, password_hash TEXT, userid INTEGER, FOREIGN KEY (userid) REFERENCES users (id))');
+          'CREATE TABLE workers (id INTEGER PRIMARY KEY autoincrement, password_hash TEXT, funcao TEXT, userid INTEGER, FOREIGN KEY (userid) REFERENCES users (id))');
     });
 
     return database;
@@ -23,7 +23,7 @@ class WorkerController {
 
   Future<List<Map>> read() async {
     var database = await getDatabase();
-    List<Map> workers = await database.rawQuery('SELECT * FROM worker');
+    List<Map> workers = await database.rawQuery('SELECT * FROM worker ');
     await database.close();
     return workers;
   }
