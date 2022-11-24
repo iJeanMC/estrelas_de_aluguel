@@ -23,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         //#46b3eb
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color.fromARGB(255, 70, 179, 235),
         body: Container(
           alignment: Alignment.center,
@@ -100,8 +101,13 @@ class _LoginPageState extends State<LoginPage> {
                   Navigator.of(context).pop()
                 }, //do more stuff? i don't know, like make the user actually be logged in, I guess
               )),
+ElevatedButton(
+                child: Text('Registrar'),
+                onPressed: () => {
+                  Navigator.of(context).pushNamed('/cadastro') }
+)
               //Expanded(flex: 1, child: Container())
-            ],
+            ], 
           ),
         ));
   }

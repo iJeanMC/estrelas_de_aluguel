@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-//import models as needed
+
+import '../../controllers/review.controller.dart';
+import '../../models/review.model.dart';
 
 class ReviewPage extends StatelessWidget {
   Widget rating_bar_indicator_default(double rating) {
@@ -14,6 +16,32 @@ class ReviewPage extends StatelessWidget {
               color: Colors.amber,
             ));
   }
+
+  Widget comment_widget(String text) {
+    Widget comment = Column(
+      children: [
+        Row(
+          children: [Icon(Icons.person), Text("Username")],
+        ),
+        Container(
+          // fazer um for loop que exibe todos os comentários
+          margin: EdgeInsets.all(3),
+          padding: EdgeInsets.all(3),
+          alignment: Alignment.centerLeft,
+          child: Text(text),
+        ),
+      ],
+    );
+    return comment;
+  }
+
+/*  void save(BuildContext context) async {
+    double stars = 0;
+    formKey.currentState!.save();
+    var reviewController = new ReviewController();
+    await reviewController.create(Review(stars));
+    Navigator.of(context).pop();
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +104,7 @@ class ReviewPage extends StatelessWidget {
                     ],
                   ),
                   Container(
-                    margin: EdgeInsets.all(15),
+                    margin: EdgeInsets.fromLTRB(16, 5, 16, 3),
                     padding: EdgeInsets.all(8),
                     color: Colors.white70,
                     child: Text(
@@ -84,7 +112,10 @@ class ReviewPage extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                   ),
-                  Text("Review por: Nome Cliente"),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                    child: Text("Review por: Nome Cliente"),
+                  ),
                 ],
               ),
             ),
@@ -95,25 +126,17 @@ class ReviewPage extends StatelessWidget {
                 Container(
                     alignment: Alignment.centerLeft,
                     child: Text("Comentarios: ")),
-                Column(
-                  children: [
-                    Container(
-                      // fazer um for loop que exibe todos os comentários
-                      margin: EdgeInsets.all(3),
-                      padding: EdgeInsets.all(3),
-                      color: Colors.grey,
-                      alignment: Alignment.centerLeft,
-                      child: Text("this is very informational, thank you"),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(3),
-                      padding: EdgeInsets.all(3),
-                      alignment: Alignment.centerLeft,
-                      color: Colors.grey,
-                      child: Text(
-                          "I had a very different experience, disagree h,phm"),
-                    )
-                  ],
+                Container(
+                  height: 200,
+                  child: ListView(
+                    // you can hand this guy a list of comments via the CRUD comment thing and it should maybe work
+                    children: [
+                      comment_widget("this is very something something"),
+                      comment_widget("this is very something something"),
+                      comment_widget(
+                          "this is ahhahahah fasdfoewjrofjeoihg fsdofi sdof sdjiofp jsdpfg jsdp"),
+                    ],
+                  ),
                 )
               ]),
             )

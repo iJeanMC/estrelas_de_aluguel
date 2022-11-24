@@ -10,7 +10,7 @@ class User
     id = map['id'];
     username = map['username'];
     password_hash = map['password_hash'];
-  }
+  } 
 
     Map<String, dynamic> toMap() {    
     return {

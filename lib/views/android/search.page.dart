@@ -20,18 +20,18 @@ class SearchPage extends StatelessWidget {
   Widget worker_preview_card(BuildContext context) {
     return GestureDetector(
       onTap: () => {Navigator.of(context).pushNamed('/review')},
-      child: Container(
+      child: Container( 
         width: 300,
         decoration: BoxDecoration(
             color: Colors.lightBlue,
             borderRadius: BorderRadius.all(Radius.circular(10))),
         margin: EdgeInsets.all(5),
         padding: EdgeInsets.all(3),
-        child: Row(
+        child: Row( 
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
+            Container( 
               padding: EdgeInsets.all(3),
               child: Expanded(
                   child: Container(
@@ -42,8 +42,8 @@ class SearchPage extends StatelessWidget {
                     Icons.person,
                     size: 45,
                   ),
-                ),
-              )),
+                ), 
+              ) ), 
             ),
             Expanded(
               flex: 5,
@@ -60,6 +60,7 @@ class SearchPage extends StatelessWidget {
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
+                  
                   Container(
                     alignment: Alignment.centerLeft,
                     padding: EdgeInsets.all(1),
@@ -77,13 +78,13 @@ class SearchPage extends StatelessWidget {
                       color: Colors.white,
                       child: rating_bar_indicator_default(4))
                 ],
-              ),
-            )
-          ],
-        ),
+              ), 
+            ) 
+          ], 
+        ), 
       ),
     );
-  }
+  } 
 
   @override
   Widget build(BuildContext context) {

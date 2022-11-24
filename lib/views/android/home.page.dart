@@ -153,57 +153,30 @@ class HomePage extends StatelessWidget {
                             Container(
                               margin: EdgeInsets.all(10),
                               decoration: BoxDecoration(
-                                  color: Colors.grey,
+                                  color: Colors.white,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10))),
                               child: Column(
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.all(5),
-                                    padding: EdgeInsets.all(8),
+                                    margin: EdgeInsets.all(3),
+                                    padding: EdgeInsets.all(3),
                                     child: Text(
-                                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+                                      "Titulo da Review",
                                       textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontFamily: 'Nunito',
+                                          fontWeight: FontWeight.bold),
                                     ),
                                     decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide())),
                                   ),
-                                  Text("Review por: Nome Cliente"),
                                   Container(
-                                    margin: EdgeInsets.all(6),
-                                    color: Colors.white,
-                                    child: Column(children: [
-                                      Container(
-                                          alignment: Alignment.centerLeft,
-                                          child: Text("Comentarios: ")),
-                                      Column(
-                                        children: [
-                                          Container(
-                                            margin: EdgeInsets.all(3),
-                                            padding: EdgeInsets.all(3),
-                                            color: Colors.grey,
-                                            alignment: Alignment.centerLeft,
-                                            child: Text(
-                                                "this is very informational, thank you"),
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.all(3),
-                                            padding: EdgeInsets.all(3),
-                                            alignment: Alignment.centerLeft,
-                                            color: Colors.grey,
-                                            child: Text(
-                                                "I had a very different experience, disagree h,phm"),
-                                          ),
-                                          Container(
-                                              alignment: Alignment.center,
-                                              color: Colors.lightGreen,
-                                              child: Text(
-                                                  "Ver mais comentários")) //transformar isso num botão que leva pra página da review
-                                          //                                     talvez fazer o card inteiro ser um botão? card inteiro
-                                        ],
-                                      )
-                                    ]),
-                                  )
+                                    margin: EdgeInsets.all(3),
+                                    padding: EdgeInsets.all(3),
+                                    child: Text("Review por: Nome Cliente"),
+                                  ),
                                 ],
                               ),
                             )
